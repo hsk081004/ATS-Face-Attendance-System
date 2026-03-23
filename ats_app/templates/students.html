@@ -1,0 +1,32 @@
+{% extends "base.html" %} {% block content %}
+
+<h1 class="text-3xl font-bold mb-6">Students</h1>
+
+<div class="bg-white shadow rounded-xl p-6">
+	<table class="w-full border">
+		<thead class="bg-gray-200">
+			<tr>
+				<th class="p-3">ID</th>
+				<th class="p-3">Name</th>
+				<th class="p-3">Photo</th>
+			</tr>
+		</thead>
+
+		<tbody>
+			{% for student in students %}
+
+			<tr class="border-t">
+				<td class="p-3">{{ student.id }}</td>
+				<td class="p-3">{{ student.name }}</td>
+
+				<td class="p-3">
+					<img src="{{ student.photo.url }}" class="w-12 h-12 rounded-full" />
+				</td>
+			</tr>
+
+			{% endfor %}
+		</tbody>
+	</table>
+</div>
+
+{% endblock %}

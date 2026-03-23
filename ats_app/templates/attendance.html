@@ -1,0 +1,29 @@
+{% extends "base.html" %} {% block content %}
+
+<h1 class="text-3xl font-bold mb-6">Attendance Records</h1>
+
+<div class="bg-white shadow rounded-xl p-6">
+	<table class="w-full border">
+		<thead class="bg-gray-200">
+			<tr>
+				<th class="p-3">Student</th>
+				<th class="p-3">Date</th>
+				<th class="p-3">Time</th>
+			</tr>
+		</thead>
+
+		<tbody>
+			{% for record in records %}
+
+			<tr class="border-t">
+				<td class="p-3">{{ record.student }}</td>
+				<td class="p-3">{{ record.date }}</td>
+				<td class="p-3">{{ record.time }}</td>
+			</tr>
+
+			{% endfor %}
+		</tbody>
+	</table>
+</div>
+
+{% endblock %}

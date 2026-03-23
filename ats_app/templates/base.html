@@ -1,0 +1,39 @@
+<!doctype html>
+<html>
+	<head>
+		<title>ATS Dashboard</title>
+		<script src="https://cdn.tailwindcss.com"></script>
+	</head>
+
+	<body class="bg-gray-100">
+		<div class="flex">
+			<!-- Sidebar -->
+			<div class="w-64 h-screen bg-gray-900 text-white p-6">
+				<h1 class="text-2xl font-bold mb-10">ATS System</h1>
+
+				<ul class="space-y-4">
+					<li>
+						<a href="/" class="block hover:bg-gray-700 p-2 rounded">
+							Dashboard
+						</a>
+					</li>
+
+					<li>
+						<a href="/students/" class="block hover:bg-gray-700 p-2 rounded">
+							Students
+						</a>
+					</li>
+
+					<li>
+						<a href="/attendance/" class="block hover:bg-gray-700 p-2 rounded">
+							Attendance
+						</a>
+					</li>
+				</ul>
+			</div>
+
+			<!-- Page Content -->
+			<div class="flex-1 p-10">{% block content %} {% endblock %}</div>
+		</div>
+	</body>
+</html>

@@ -1,0 +1,88 @@
+{% extends "base.html" %} {% block content %}
+
+<div class="flex items-center justify-between mb-8">
+	<h1 class="text-3xl font-bold">Attendance Dashboard</h1>
+
+	<a
+		href="{% url 'start_attendance' %}"
+		class="bg-purple-600 hover:bg-purple-700 text-white px-6 py-2 rounded-lg shadow transition"
+	>
+		▶ Start Face Recognition
+	</a>
+</div>
+
+<!-- Stats -->
+<div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-10">
+	<div class="bg-white shadow-lg rounded-xl p-6 hover:shadow-xl transition">
+		<h2 class="text-gray-500 text-sm">Total Students</h2>
+		<p class="text-4xl font-bold text-blue-600 mt-2">{{ total_students }}</p>
+	</div>
+
+	<div class="bg-white shadow-lg rounded-xl p-6 hover:shadow-xl transition">
+		<h2 class="text-gray-500 text-sm">Total Attendance</h2>
+		<p class="text-4xl font-bold text-green-600 mt-2">{{ total_attendance }}</p>
+	</div>
+
+	<div class="bg-white shadow-lg rounded-xl p-6 hover:shadow-xl transition">
+		<h2 class="text-gray-500 text-sm">System Status</h2>
+		<p class="text-lg font-semibold text-green-500 mt-2">● Running</p>
+	</div>
+</div>
+
+<!-- Navigation Buttons -->
+<div class="flex gap-4 mb-10">
+	<a
+		href="{% url 'attendance' %}"
+		class="bg-blue-600 hover:bg-blue-700 text-white px-5 py-2 rounded-lg shadow transition"
+	>
+		📋 View Attendance
+	</a>
+
+	<a
+		href="{% url 'students' %}"
+		class="bg-green-600 hover:bg-green-700 text-white px-5 py-2 rounded-lg shadow transition"
+	>
+		👨‍🎓 View Students
+	</a>
+</div>
+
+<!-- Attendance Table -->
+<div class="bg-white shadow-lg rounded-xl overflow-hidden">
+	<div class="p-6 border-b">
+		<h2 class="text-xl font-semibold">Recent Attendance</h2>
+	</div>
+
+	<table class="w-full">
+		<thead class="bg-gray-100 text-gray-600">
+			<tr>
+				<th class="p-4 text-left">Student</th>
+				<th class="p-4 text-left">Date</th>
+				<th class="p-4 text-left">Time</th>
+			</tr>
+		</thead>
+
+		<tbody>
+			{% for a in attendance %}
+
+			<tr class="border-t hover:bg-gray-50 transition">
+				<td class="p-4 font-medium">{{ a.student }}</td>
+
+				<td class="p-4">{{ a.date }}</td>
+
+				<td class="p-4">{{ a.time }}</td>
+			</tr>
+
+			{% empty %}
+
+			<tr>
+				<td colspan="3" class="p-6 text-center text-gray-400">
+					No attendance records yet
+				</td>
+			</tr>
+
+			{% endfor %}
+		</tbody>
+	</table>
+</div>
+
+{% endblock %}

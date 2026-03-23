@@ -1,0 +1,43 @@
+{% extends "base.html" %} {% block content %}
+
+<h1 class="text-3xl font-bold mb-8">Dashboard</h1>
+
+<div class="grid grid-cols-3 gap-6">
+	<div class="bg-white shadow-lg p-6 rounded-xl">
+		<h2 class="text-xl font-semibold">Students</h2>
+		<p class="text-gray-500 mt-2">Manage student database</p>
+
+		<a
+			href="/students/"
+			class="mt-4 inline-block bg-blue-500 text-white px-4 py-2 rounded"
+		>
+			View Students
+		</a>
+	</div>
+
+	<div class="bg-white shadow-lg p-6 rounded-xl">
+		<h2 class="text-xl font-semibold">Attendance</h2>
+		<p class="text-gray-500 mt-2">Check attendance records</p>
+
+		<a
+			href="/attendance/"
+			class="mt-4 inline-block bg-green-500 text-white px-4 py-2 rounded"
+		>
+			View Attendance
+		</a>
+	</div>
+
+	<div class="bg-white shadow-lg p-6 rounded-xl">
+		<h2 class="text-xl font-semibold">Start Camera</h2>
+		<p class="text-gray-500 mt-2">Start face recognition</p>
+
+		<a
+			href="{% url 'start_attendance' %}"
+			class="mt-4 inline-block bg-purple-500 text-white px-4 py-2 rounded"
+		>
+			Start
+		</a>
+	</div>
+</div>
+
+{% endblock %}
